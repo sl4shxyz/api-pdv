@@ -6,11 +6,13 @@ import (
   "api_pdv/src/database"
 
   "fmt"
+  "os"
 )
 
 func main() {
   if err := database.SetupDB(); err != nil {
     fmt.Println(err)
+    os.Exit(1)
   }
 
   r := gin.Default()
